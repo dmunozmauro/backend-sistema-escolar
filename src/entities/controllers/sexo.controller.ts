@@ -6,7 +6,7 @@ export class SexoController {
 
     constructor(private readonly sexoService: SexoService) { }
 
-    @Get('/sexo')
+    @Get()
     findAllSexo() {
         return this.sexoService.findAllSexo();
     }

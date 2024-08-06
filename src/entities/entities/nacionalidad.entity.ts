@@ -15,10 +15,9 @@ export class Nacionalidad {
 
     @ApiProperty({
         example: 'chilena',
-        description: 'descripcion nacionalidad',
-        uniqueItems: true
+        description: 'descripcion nacionalidad'
     })
-    @Column({ type: 'varchar', length: 100, unique: true })
+    @Column({ type: 'varchar', length: 100 })
     descripcion: string;
 
     @OneToMany(() => Estudiante, estudiante => estudiante.id_nacionalidad)
