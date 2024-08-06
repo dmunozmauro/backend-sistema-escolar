@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, ForbiddenException, Get, HttpCode, HttpStatus, NotFoundException, Param, Patch, Post, Put, Query } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, NotFoundException, Param, Post, Put, Query } from '@nestjs/common';
 import { EstudiantesService } from './estudiantes.service';
 import { PaginationDto } from 'src/common/dtos/pagination.dto';
 import { CreateEstudianteDto } from './dto/create-estudiante.dto';
@@ -22,10 +22,13 @@ export class EstudiantesController {
     return this.estudianteService.findOne({ run, nombre });
   }
 
-  @Post()
+  /* @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createEstudianteDto: CreateEstudianteDto) {
     try {
+
+      console.log('createEstudianteDtocreateEstudianteDtocreateEstudianteDto', createEstudianteDto);
+
       const estudiante = await this.estudianteService.create(createEstudianteDto);
       return {
         statusCode: HttpStatus.CREATED,
@@ -41,6 +44,12 @@ export class EstudiantesController {
       }
       throw error;
     }
+  } */
+
+  @Post()
+  create(@Body() createEstudianteDto: any) {
+    console.log('llegamos al post', createEstudianteDto);
+    return { message: 'Estudiante creado exitosamente' };
   }
 
   @Put(':id')
